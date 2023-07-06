@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { TextField, Button, Typography, Card, CardContent, Grid } from "@mui/material";
+import { API } from "@/network";
 
 const Login = () => {
   const [email, setEmail] = useState<string>("");
-  const API = "http://172.29.106.182:3001/";
 
   const handleSubmit = async (event: React.SyntheticEvent) => {
     const response: Response = await fetch(API + `login?email=${email}`, {

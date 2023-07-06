@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { TextField, Button, Typography, Card, CardContent, Grid } from "@mui/material";
+import { API } from "@/network";
 
 const SignUp = () => {
   const [email, setEmail] = useState<string>("");
   const [first_name, setFirstName] = useState<string>("");
   const [last_name, setLastName] = useState<string>("");
-  const API = "http://172.29.106.182:3001/";
 
   const handleSubmit = (event: React.SyntheticEvent) => {
     fetch(API + "insert_user", {
