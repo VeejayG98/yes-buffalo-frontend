@@ -5,14 +5,20 @@ const Login = () => {
   const [email, setEmail] = useState<string>("");
   const API = "http://172.29.106.182:3001/";
 
-  const handleSubmit = (event: React.SyntheticEvent) => {
-    fetch(API + `login?email=${email}`, {
+  const handleSubmit = async (event: React.SyntheticEvent) => {
+    const response: Response = await fetch(API + `login?email=${email}`, {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
       },
     });
-    console.log("Submitted");
+    
+    if(response.status === 200) {
+      console.log("Logged in");
+    }
+    else{
+        console.log("Not logged in")
+    }
   };
 
   return (
