@@ -1,0 +1,35 @@
+[
+    {
+      "company": "Google",
+      "title": "Software Engineer",
+      "link": "https://careers.google.com/jobs/results/?q=software%20engineer",
+      "job_id": "123456",
+      "tools": "Java, Python, SQL",
+      "location": "Mountain View, CA"
+    },
+    {
+      "company": "Amazon",
+      "title": "Data Scientist",
+      "link": "https://www.amazon.jobs/en/jobs/157744/data-scientist",
+      "job_id": "789012",
+      "tools": "R, Python, Hadoop",
+      "location": "Seattle, WA"
+    },
+    {
+      "company": "Microsoft",
+      "title": "Cybersecurity Engineer",
+      "link": "https://careers.microsoft.com/us/en-us/search?q=cybersecurity%20engineer",
+      "job_id": "345678",
+      "tools": "Kali Linux, Splunk, Wireshark",
+      "location": "Redmond, WA"
+    },
+    {
+      "company": "Apple",
+      "title": "Product Designer",
+      "link": "https://www.apple.com/jobs/us/search?job_title=product%20designer",
+      "job_id": "901234",
+      "tools": "Figma, Sketch, Adobe XD",
+      "location": "Cupertino, CA"
+    }
+  ]
+  
