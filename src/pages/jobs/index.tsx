@@ -1,12 +1,13 @@
 import CompanyCard from "@/components/CompanyCard";
 import { CompanyInfo } from "@/interface";
+import { API } from "@/network";
 import { Grid, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 
 export default function Jobs() {
   const [jobs, setJobs] = useState<CompanyInfo[]>([]);
   useEffect(() => {
-    fetch("temp.json", {
+    fetch(API + "get_companies", {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
