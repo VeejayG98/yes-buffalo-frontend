@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import { TextField, Button, Typography, Card, CardContent, Grid } from "@mui/material";
 import { API } from "@/network";
 import { useRouter } from "next/router";
+import SimpleSnackbar from "@/components/Snackbar";
 
 const Login = () => {
   const router = useRouter();
   const [email, setEmail] = useState<string>("");
+  const [openSnackbar, setOpenSnackbar] = useState<boolean>(false);
+  const [snackbarMessage, setSnackbarMessage] = useState<string>("");
 
   const handleSubmit = async (event: React.SyntheticEvent) => {
     const response: Response = await fetch(API + `login?email=${email}`, {
@@ -20,6 +23,8 @@ const Login = () => {
       localStorage.setItem("email", email);
       router.push("/jobs")
     } else {
+      setSnackbarMessage("Email not found");
+      setOpenSnackbar(true);
       console.log("Not logged in");
     }
   };
@@ -54,6 +59,7 @@ const Login = () => {
           </Grid>
         </CardContent>
       </Card>
+      <SimpleSnackbar open={openSnackbar} setOpen={setOpenSnackbar} message={snackbarMessage} />
     </div>
   );
 };

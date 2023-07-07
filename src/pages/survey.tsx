@@ -1,3 +1,4 @@
+import SimpleSnackbar from "@/components/Snackbar";
 import { FormControl } from "@mui/base";
 import { Box, Button, Card, CardContent, CardHeader, FormControlLabel, FormLabel, Grid, Radio, RadioGroup, Typography } from "@mui/material";
 import { GetServerSideProps, GetServerSidePropsContext } from "next";
@@ -16,6 +17,8 @@ export async function getServerSideProps(context: GetServerSidePropsContext){
 export default function Survey({email, job_id, company}: {email: string, job_id: string, company: string}) {
 
   const [option, setOption] = useState<string | null>(null);
+  const [openSnackbar, setOpenSnackbar] = useState<boolean>(false);
+
   const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setOption(event.target.value);
   };
@@ -33,6 +36,10 @@ export default function Survey({email, job_id, company}: {email: string, job_id:
       }),
     });
     console.log(email, job_id, company, option);
+    if (response.status === 200){
+      console.log("Submitted");
+      setOpenSnackbar(true);
+    }
   };
 
   return (
@@ -40,7 +47,7 @@ export default function Survey({email, job_id, company}: {email: string, job_id:
       <Card sx={{ width: 400, height: 350 }}>
         <CardContent>
           <Typography variant="h5">SayYes Buffalo Job Survey</Typography>
-          <Grid container display="flex" justifyItems="space-between" flexDirection="column">
+          <Grid container display="flex" justifyContent="space-between" flexDirection="column" padding={5}>
             <Grid item>
               <FormControl>
                 <FormLabel>Application Status</FormLabel>
@@ -60,6 +67,7 @@ export default function Survey({email, job_id, company}: {email: string, job_id:
           </Grid>
         </CardContent>
       </Card>
+      <SimpleSnackbar setOpen={setOpenSnackbar} open={openSnackbar} message="Survey Submitted" />
     </div>
   );
 }
