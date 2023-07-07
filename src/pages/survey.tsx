@@ -47,7 +47,7 @@ export default function Survey({email, job_id, company}: {email: string, job_id:
       <Card sx={{ width: 400, height: 350 }}>
         <CardContent>
           <Typography variant="h5">SayYes Buffalo Job Survey</Typography>
-          <Grid container display="flex" justifyItems="space-between" flexDirection="column">
+          <Grid container display="flex" justifyContent="space-between" flexDirection="column" padding={5}>
             <Grid item>
               <FormControl>
                 <FormLabel>Application Status</FormLabel>
