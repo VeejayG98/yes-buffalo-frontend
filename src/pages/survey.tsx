@@ -6,7 +6,7 @@ import { useState } from "react";
 export async function getServerSideProps(context: GetServerSidePropsContext){
   console.log(context.query?.email)
   const email = context.query?.email as string;
-  const job_id = context.query?.job_id as string;
+  const job_id = context.query?.id as string;
   const company = context.query?.company as string;
   return {
     props: {email: email, job_id: job_id, company: company}
