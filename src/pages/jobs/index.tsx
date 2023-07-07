@@ -23,7 +23,7 @@ export default function Jobs() {
 
       <Grid container spacing={2} display="flex" justifyContent="flex-start">
         {jobs.map((job) => (
-          <Grid item xs={12} sm={6} md={4}>
+          <Grid item xs={12} sm={6} md={4} key={job.job_id}>
           <CompanyCard job_id={job.job_id} title={job.title} company={job.company} location={job.location} tools={job.tools} link={job.link} />
         </Grid>
         ))}
