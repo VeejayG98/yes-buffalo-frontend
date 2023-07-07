@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 export default function Jobs() {
   const [jobs, setJobs] = useState<CompanyInfo[]>([]);
   useEffect(() => {
-    fetch(API + "get_companies", {
+    fetch("temp.json", {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
@@ -17,9 +17,9 @@ export default function Jobs() {
     .then((data) => setJobs(data));
   }, []);
   return (
-    <div>
-      <Typography variant="h3">Say Yes Buffalo</Typography>
-      <Typography variant="h4">Jobs</Typography>
+    <div style={{padding: 10}}>
+      <Typography variant="h3" sx={{ color: "purple", mx: 3, my: 1 }}>Say Yes Buffalo</Typography>
+      <Typography variant="h4" sx={{marginLeft: 3, my: 2}}>Job Portal</Typography>
 
       <Grid container spacing={2} display="flex" justifyContent="flex-start">
         {jobs.map((job) => (
