@@ -17,7 +17,7 @@ const Login = () => {
       console.log("Logged in");
     }
     else{
-        console.log("Not logged in")
+      console.log("Not logged in")
     }
   };
 
