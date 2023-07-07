@@ -38,7 +38,7 @@ export default function Survey({email, job_id, company}: {email: string, job_id:
     console.log(email, job_id, company, option);
     if (response.status === 200){
       console.log("Submitted");
-      <SimpleSnackbar setOpen={setOpenSnackbar} open={openSnackbar} message="Survey Submitted" />
+      setOpenSnackbar(true);
     }
   };
 
@@ -67,6 +67,7 @@ export default function Survey({email, job_id, company}: {email: string, job_id:
           </Grid>
         </CardContent>
       </Card>
+      <SimpleSnackbar setOpen={setOpenSnackbar} open={openSnackbar} message="Survey Submitted" />
     </div>
   );
 }
