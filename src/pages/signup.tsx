@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import { TextField, Button, Typography, Card, CardContent, Grid } from "@mui/material";
 import { API } from "@/network";
+import { useRouter } from "next/router";
 
 const SignUp = () => {
   const [email, setEmail] = useState<string>("");
   const [first_name, setFirstName] = useState<string>("");
   const [last_name, setLastName] = useState<string>("");
+  const router = useRouter();
 
-  const handleSubmit = (event: React.SyntheticEvent) => {
-    fetch(API + "insert_user", {
+  const handleSubmit = async (event: React.SyntheticEvent) => {
+    const response = await fetch(API + "insert_user", {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
@@ -20,7 +22,11 @@ const SignUp = () => {
         Email: email,
       }),
     });
-    console.log("Submitted");
+    if (response.status === 200){
+      console.log("Submitted");
+      router.push("/login");
+    }
+    
   };
 
   return (
