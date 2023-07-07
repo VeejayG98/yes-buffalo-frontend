@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { TextField, Button, Typography, Card, CardContent, Grid } from "@mui/material";
 import { API } from "@/network";
+import { useRouter } from "next/router";
 
 const Login = () => {
+  const router = useRouter();
   const [email, setEmail] = useState<string>("");
 
   const handleSubmit = async (event: React.SyntheticEvent) => {
@@ -12,12 +14,13 @@ const Login = () => {
         Accept: "application/json",
       },
     });
-    
-    if(response.status === 200) {
+
+    if (response.status === 200) {
       console.log("Logged in");
-    }
-    else{
-      console.log("Not logged in")
+      localStorage.setItem("email", email);
+      router.push("/jobs")
+    } else {
+      console.log("Not logged in");
     }
   };
 
