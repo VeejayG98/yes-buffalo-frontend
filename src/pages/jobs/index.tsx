@@ -19,7 +19,7 @@ export default function Jobs() {
   return (
     <div style={{ padding: 10 }}>
       <div style={{ display: "flex", alignContent: "center", alignItems:"center" }}>
-        <img src="SayYesBuffalo.jpeg" alt="Say Yes Buffalo Logo" style={{ width: "25%", maxWidth: 500, height: "auto" }} />
+        <img src="SayYesBuffalo.jpeg" alt="Say Yes Buffalo Logo" style={{ width: "10%", maxWidth: 500, height: "auto" }} />
         <Typography variant="h4" sx={{ marginLeft: 3, my: 2 }}>
           Job Portal
         </Typography>
