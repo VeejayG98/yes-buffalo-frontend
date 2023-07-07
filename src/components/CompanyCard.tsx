@@ -2,8 +2,12 @@ import { Box, Button, Card, CardContent, CardHeader, Typography } from "@mui/mat
 import WorkRoundedIcon from "@mui/icons-material/WorkRounded";
 import { CompanyInfo } from "@/interface";
 import { API } from "@/network";
+import { useState } from "react";
+import SimpleSnackbar from "./Snackbar";
 
 const CompanyCard = ({ job_id, title, company, location, tools, link }: CompanyInfo) => {
+  const [openSnackbar, setOpenSnackbar] = useState<boolean>(false);
+
   const applyJob = async () => {
     const response = await fetch(API + "add_app", {
       headers: {
@@ -17,6 +21,9 @@ const CompanyCard = ({ job_id, title, company, location, tools, link }: CompanyI
       }),
     });
     if (response.status === 200) window.open(link, "_blank");
+    else{
+      <SimpleSnackbar open={openSnackbar} setOpen={setOpenSnackbar} message="You have already applied to this job" />
+    }
   };
   
   return (
